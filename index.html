@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting Value Review</title>
+    <meta name="description" content="A business-focused meeting cost and savings calculator." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="topbar">
+        <a class="brand" href="#top" aria-label="Meeting Value Review home"><span class="brand-mark">M</span><span>Meeting <strong>Value</strong></span></a>
+        <span class="nav-label">Business efficiency tool</span>
+        <button class="outline-button" id="resetButton" type="button">Reset analysis</button>
+      </nav>
+
+      <section class="hero" id="top">
+        <div class="eyebrow"><span></span> TURN TIME INTO A MANAGEABLE INVESTMENT</div>
+        <h1>Every meeting has a cost.<br /><em>Make it earn its place.</em></h1>
+        <p>Build a clear, credible view of the people-cost behind a meeting—and test small changes that create capacity for more valuable work.</p>
+        <div class="hero-note"><span class="dot"></span> A planning conversation, not a people-performance measure</div>
+      </section>
+
+      <section class="dashboard" aria-label="Meeting analysis">
+        <div class="input-panel">
+          <div class="panel-heading"><div><p class="section-kicker">01 / MEETING BRIEF</p><h2>Set the scenario</h2></div><span class="required">All fields editable</span></div>
+          <div class="form-grid">
+            <label class="field"><span>Meeting name <small>Optional</small></span><input id="meetingName" type="text" value="Weekly leadership review" /></label>
+            <label class="field"><span>Meeting duration</span><div class="input-unit"><input id="duration" type="number" min="1" value="60" /><b>min</b></div></label>
+            <label class="field"><span>Attendees</span><div class="stepper"><button type="button" data-step="-1" aria-label="Remove attendee">−</button><input id="participants" type="number" min="1" max="50" value="8" /><button type="button" data-step="1" aria-label="Add attendee">+</button></div></label>
+            <label class="field"><span>Meetings per month</span><div class="input-unit"><input id="frequency" type="number" min="1" value="4" /><b>times</b></div></label>
+          </div>
+          <div class="assumption"><div class="assumption-icon">i</div><p><strong>Working assumption:</strong> 2,080 working hours per year (40 hours × 52 weeks). Use fully loaded annual cost for the most realistic business case.</p></div>
+
+          <div class="people-header"><div><p class="section-kicker">02 / PEOPLE COST</p><h2>Who is in the room?</h2></div><button class="text-button" id="addPerson" type="button">+ Add person</button></div>
+          <div class="people-list" id="peopleList"></div>
+        </div>
+
+        <aside class="insight-panel">
+          <p class="section-kicker light">LIVE BUSINESS CASE</p>
+          <div class="meeting-pill" id="meetingPill">WEEKLY LEADERSHIP REVIEW</div>
+          <p class="metric-label">Cost of this meeting</p>
+          <div class="big-cost" id="totalCost">₹0</div>
+          <div class="cost-line"><span id="costPerMinute">₹0 per minute</span><span>•</span><span id="attendeeCount">0 people</span></div>
+          <div class="divider"></div>
+          <div class="context-grid"><div><span>Monthly cost</span><strong id="monthlyCost">₹0</strong></div><div><span>Annual cost</span><strong id="annualCost">₹0</strong></div></div>
+          <div class="decision-card"><div class="card-top"><span class="spark">↗</span><span>Opportunity</span></div><h3>What if this meeting was <mark id="reducedDuration">45 min</mark>?</h3><p>Shortening it by <strong id="minutesSaved">15 minutes</strong> creates a recurring capacity gain.</p><div class="saving-row"><div><span>Saved / meeting</span><strong id="savingMeeting">₹0</strong></div><div><span>Saved / year</span><strong id="savingYear">₹0</strong></div></div></div>
+          <button class="primary-button" id="copySummary" type="button"><span>Copy business case</span><span>→</span></button>
+        </aside>
+      </section>
+
+      <section class="recommendation" id="recommendation"><div class="recommendation-number">03</div><div><p class="section-kicker">CONSULTANT'S READOUT</p><h2 id="recommendationTitle">A focused agenda could unlock meaningful capacity.</h2><p id="recommendationText">Use the meeting cost as a prompt: what decision, alignment, or outcome needs to justify this investment?</p></div><div class="capacity"><span>Annual time recovered</span><strong id="hoursSaved">0 hrs</strong><small>if reduced by 15 min</small></div></section>
+
+      <footer><span>Meeting Value Review</span><span>Cost is an estimate based on stated annual compensation and working-hour assumptions.</span></footer>
+    </main>
+    <template id="personTemplate"><article class="person-row"><div class="person-avatar"></div><label><span class="sr-only">Participant name</span><input class="person-name" type="text" value="" /></label><label class="salary-field"><span class="sr-only">Annual salary</span><span class="currency">₹</span><input class="person-salary" type="number" min="0" step="10000" value="" /><small>/ year</small></label><div class="person-rate"><span>Hourly cost</span><strong>₹0</strong></div><button class="remove-person" type="button" aria-label="Remove participant">×</button></article></template>
+    <script src="app.js"></script>
+  </body>
+</html>
