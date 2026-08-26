@@ -71,13 +71,6 @@ Once GitHub Pages is enabled, the project can be viewed at:
 https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME/
 ```
 
-## Interview talking points
 
-- I framed the problem around **productive capacity and decision value**, rather than simply reducing meeting costs.
-- I made the assumptions explicit so that stakeholders can challenge or adapt the model.
-- I designed the tool to turn a number into an action: shorten the meeting, refine the agenda, or reconsider who needs to attend.
-- The same approach could be extended into a consulting engagement by analysing a meeting portfolio by function, seniority, or recurring cost.
-
----
 
 Built as a business-efficiency and operational-improvement case study.
